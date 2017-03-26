@@ -1,0 +1,184 @@
+{
+    "data": {
+        "resultList": [
+            
+            {
+                "courseId": "04cfc73c-99e7-11e6-8eaa-000c298abb40",
+                "courseName": "商务礼仪与交往艺术",
+                "author": "Yannis",
+                "studyScore": 50,
+                "description": "在世界一体化的今天，要想取得事业成功，首先要从自我素质提升做起，面对客户进行商务交往，在无意识的交往中把自己最优秀的一面呈现给大家。",
+                "courseTime": 98,
+                "defaultImageId": "3c25b25a-99e7-11e6-8eaa-000c298abb40",
+                "activeState": 1,
+                "publishState": 1,
+                "modifyUserId": "admin",
+                "modifyUserName": "admin",
+                "modifyTime": 1477313200000,
+                "contentAttaId": "4f7b9bda-99e7-11e6-8eaa-000c298abb40",
+                "timePercent": 10,
+                "playSortKey": 1,
+                "courseClassify": {
+                    "classificationId": "36dcf66e-99e7-11e6-8eaa-000c298abb40",
+                    "classifyId": "ee272d36-99d2-11e6-8eaa-000c298abb40",
+                    "classifyName": "商务礼仪",
+                    "courseId": "04cfc73c-99e7-11e6-8eaa-000c298abb40"
+                }
+            },
+            {
+                "courseId": "06cb43b8-9a64-11e6-8eaa-000c298abb40",
+                "courseName": "说营销-价值",
+                "author": "Yannis",
+                "studyScore": 50,
+                "description": "“互联网+”深刻的颠覆了商业模式和传统行业，企业在发展过程中正遭遇前所未有的挑战，只有创新营销思维、重塑营销模式，才能破解转型升级时代的营销难题，成为卓越企业。",
+                "courseTime": 46,
+                "defaultImageId": "6b9c1966-9b4a-11e6-8eaa-000c298abb40",
+                "activeState": 1,
+                "publishState": 1,
+                "modifyUserId": "admin",
+                "modifyUserName": "admin",
+                "modifyTime": 1477465461000,
+                "contentAttaId": "3137199c-9a64-11e6-8eaa-000c298abb40",
+                "timePercent": 10,
+                "playSortKey": 1,
+                "courseClassify": {
+                    "classificationId": "223f063e-9a64-11e6-8eaa-000c298abb40",
+                    "classifyId": "4d94defe-99dc-11e6-8eaa-000c298abb40",
+                    "classifyName": "营销管理",
+                    "courseId": "06cb43b8-9a64-11e6-8eaa-000c298abb40"
+                }
+            },
+            {
+                "courseId": "20ebb172-99e4-11e6-8eaa-000c298abb40",
+                "courseName": "客户的维度分析",
+                "author": "Yannis",
+                "studyScore": 50,
+                "description": "客户的消费行为有很多，习惯型、理智型、经济型、冲动型、疑虑型。针对每种风格的客户，都会有不同的应对技巧。足够了解客户，才可以游刃有余、因人而异的去推动，才能取得更好的营销业绩。",
+                "courseTime": 10,
+                "defaultImageId": "71121268-99e4-11e6-8eaa-000c298abb40",
+                "activeState": 1,
+                "publishState": 1,
+                "modifyUserId": "admin",
+                "modifyUserName": "admin",
+                "modifyTime": 1477311838000,
+                "contentAttaId": "b8c30c20-99e4-11e6-8eaa-000c298abb40",
+                "timePercent": 10,
+                "playSortKey": 1,
+                "courseClassify": {
+                    "classificationId": "6c2929a8-99e4-11e6-8eaa-000c298abb40",
+                    "classifyId": "bbcc4ef6-99d8-11e6-8eaa-000c298abb40",
+                    "classifyName": "职场宝典",
+                    "courseId": "20ebb172-99e4-11e6-8eaa-000c298abb40"
+                }
+            },
+            {
+                "courseId": "59218b5e-99dd-11e6-8eaa-000c298abb40",
+                "courseName": "管理工作为什么与众不同",
+                "author": "管理课老师",
+                "studyScore": 50,
+                "description": "工作分为动脑的、动手的，那管理工作又是怎样的呢?另外，什么时候用什么人做什么事还是用各种资源以实现目标？管理的五项基本职能又是什么呢？",
+                "courseTime": 14,
+                "defaultImageId": "67dbecaa-99df-11e6-8eaa-000c298abb40",
+                "activeState": 1,
+                "publishState": 1,
+                "modifyUserId": "admin",
+                "modifyUserName": "admin",
+                "modifyTime": 1477309707000,
+                "contentAttaId": "b41ea4e0-99df-11e6-8eaa-000c298abb40",
+                "timePercent": 10,
+                "playSortKey": 1,
+                "courseClassify": {
+                    "classificationId": "5fd1433e-99df-11e6-8eaa-000c298abb40",
+                    "classifyId": "a4f1f186-99d3-11e6-8eaa-000c298abb40",
+                    "classifyName": "团队管理",
+                    "courseId": "59218b5e-99dd-11e6-8eaa-000c298abb40"
+                }
+            },
+            {
+                "courseId": "6bac745a-99e2-11e6-8eaa-000c298abb40",
+                "courseName": "4分钟学会项目管理关键链法",
+                "author": "管理课老师",
+                "studyScore": 50,
+                "description": "好的项目管理，就是要确保项目能够在预定的时间和预算内，不折不扣地完成所确定的项目内容并保证项目质量。难难难，为什么项目管理这么难？别再望项目兴叹啦，项目管理神操作将大大缩短项目周期。",
+                "courseTime": 4,
+                "defaultImageId": "aad1c0cc-99e2-11e6-8eaa-000c298abb40",
+                "activeState": 1,
+                "publishState": 1,
+                "modifyUserId": "admin",
+                "modifyUserName": "admin",
+                "modifyTime": 1477311218000,
+                "contentAttaId": "c3eded88-99e2-11e6-8eaa-000c298abb40",
+                "timePercent": 10,
+                "playSortKey": 1,
+                "courseClassify": {
+                    "classificationId": "8d4ddc7a-99e2-11e6-8eaa-000c298abb40",
+                    "classifyId": "7217dfce-99dc-11e6-8eaa-000c298abb40",
+                    "classifyName": "项目管理",
+                    "courseId": "6bac745a-99e2-11e6-8eaa-000c298abb40"
+                }
+            },
+            {
+                "courseId": "6e6bcc5a-9a63-11e6-8eaa-000c298abb40",
+                "courseName": "说营销-定位",
+                "author": "Yannis",
+                "studyScore": 50,
+                "description": "“互联网+”深刻的颠覆了商业模式和传统行业，企业在发展过程中正遭遇前所未有的挑战，只有创新营销思维、重塑营销模式，才能破解转型升级时代的营销难题，成为卓越企业。",
+                "courseTime": 44,
+                "defaultImageId": "768aaeb4-9b4a-11e6-8eaa-000c298abb40",
+                "activeState": 1,
+                "publishState": 1,
+                "modifyUserId": "admin",
+                "modifyUserName": "admin",
+                "modifyTime": 1477465480000,
+                "contentAttaId": "ee17b43c-9a63-11e6-8eaa-000c298abb40",
+                "timePercent": 10,
+                "playSortKey": 1,
+                "courseClassify": {
+                    "classificationId": "8e7ddc4a-9a63-11e6-8eaa-000c298abb40",
+                    "classifyId": "4d94defe-99dc-11e6-8eaa-000c298abb40",
+                    "classifyName": "营销管理",
+                    "courseId": "6e6bcc5a-9a63-11e6-8eaa-000c298abb40"
+                }
+            },
+            {
+                "courseId": "75ed995c-99e3-11e6-8eaa-000c298abb40",
+                "courseName": "高效团队五大构成要素",
+                "author": "管理课老师",
+                "studyScore": 50,
+                "description": "一般的团队由人组成，高效的团队是由什么组成的呢？本课程主要介绍了高效团队的五大组成要素，也进一步介绍了各组成要素的重要性、特性及所需考虑内容等方面。组建高效团队，迈向成功的第一步。",
+                "courseTime": 31,
+                "defaultImageId": "b9b7dff8-99e3-11e6-8eaa-000c298abb40",
+                "activeState": 1,
+                "publishState": 1,
+                "modifyUserId": "admin",
+                "modifyUserName": "admin",
+                "modifyTime": 1477311527000,
+                "contentAttaId": "fe7a198a-99e3-11e6-8eaa-000c298abb40",
+                "timePercent": 10,
+                "playSortKey": 1,
+                "courseClassify": {
+                    "classificationId": "b32e7d0e-99e3-11e6-8eaa-000c298abb40",
+                    "classifyId": "a4f1f186-99d3-11e6-8eaa-000c298abb40",
+                    "classifyName": "团队管理",
+                    "courseId": "75ed995c-99e3-11e6-8eaa-000c298abb40"
+                }
+            }
+        ],
+        "pageSize": 5,
+        "currentPage": 1,
+        "count": 7,
+        "maxPage": 1,
+        "minPage": 1,
+        "firstResult": 0,
+        "pagination": {
+            "count": 5,
+            "page": 1,
+            "pages": 2,
+            "size": 7
+        },
+        "queryCount": 0,
+        "hotNews": 1
+    },
+    "message": "",
+    "success": true
+}
