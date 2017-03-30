@@ -94,21 +94,223 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider,
 						data : {
 							pageTitle : ''
 						},
-						controller : "StandardListCtrl",
+						controller : "uploadingctrl",
 						resolve : {
 							loadPlugin : function($ocLazyLoad) {
 								return $ocLazyLoad
 										.load([ {
-											name : 'Module.myForm',
+											name : 'Module.uploading',
 											files : [
 													'./workbench/uploading/uploadingservice.js',
-													'./workbench/uploading/uploadingctrl.js'],
+													'./workbench/uploading/uploadingctrl.js',
+													'../asserts/js/plugin/fileupload/ng-file-upload-shim.min.js',
+													'../asserts/js/plugin/fileupload/ng-file-upload.min.js'],
 											serie : true
 										}
 
 										]);
 							}
 						}
+			})
+			.state('frontendtemplate.uiselect',{
+				url:'uiselect',
+				templateUrl : "workbench/uiselect/list.html",
+				data : {pageTitle:''},
+				controller:'uiselectctrl',
+				resolve : {
+					loadPlugin : function($ocLazyLoad) {
+								return $ocLazyLoad
+										.load([ {
+											name : 'Module.uiselect',
+											files : [
+													'./workbench/uiselect/uiselectservice.js',
+													'./workbench/uiselect/uiselectctrl.js',
+													'../asserts/js/plugin/select/select.min.js',
+													'../asserts/js/plugin/select/lodash.min.js',
+													'../asserts/js/plugin/select/myselect.min.js',
+													'../asserts/css/plugins/select/select.min.css',
+													'../asserts/css/plugins/select/myselect.css'],
+											serie : true
+										}
+
+										]);
+							}
+				}
+			})
+			.state('frontendtemplate.treegrid',{
+				url:'treegrid',
+				templateUrl : "workbench/treegrid/list.html",
+				data : {pageTitle:''},
+				controller:'treegridctrl',
+				resolve : {
+					loadPlugin : function($ocLazyLoad) {
+								return $ocLazyLoad
+										.load([ {
+											name : 'Module.treegrid',
+											files : [
+													'./workbench/treegrid/treegridservice.js',
+													'./workbench/treegrid/treegridctrl.js',
+													'../asserts/js/plugin/treegrid/tree-grid-directive.js',
+													'../asserts/css/plugins/treegrid/treeGrid.css'],
+											serie : true
+										}
+
+										]);
+							}
+				}
+			})
+			.state('frontendtemplate.textedit',{
+				url:'textedit',
+				templateUrl : "workbench/textedit/list.html",
+				data : {pageTitle:''},
+				controller:'texteditctrl',
+				resolve : {
+					loadPlugin : function($ocLazyLoad) {
+								return $ocLazyLoad
+										.load([ {
+											name : 'Module.textedit',
+											files : [
+													'./workbench/textedit/texteditservice.js',
+													'./workbench/textedit/texteditctrl.js',
+													'../asserts/css/plugins/textedit/summernote.css',
+													'../asserts/css/plugins/textedit/summernote-bs3.css',
+													'../asserts/js/plugin/textedit/summernote.min.js',
+													'../asserts/js/plugin/textedit/angular-summernote.min.js'],
+											serie : true
+										}
+
+										]);
+							}
+				}
+			})
+			.state('frontendtemplate.classify',{
+				url:'classify',
+				templateUrl : "workbench/classify/list.html",
+				data : {pageTitle:''},
+				controller:'classifyctrl',
+				resolve : {
+					loadPlugin : function($ocLazyLoad) {
+								return $ocLazyLoad
+										.load([ {
+											name : 'Module.classify',
+											files : [
+													'./workbench/classify/classifyservice.js',
+													'./workbench/classify/classifyctrl.js'],
+											serie : true
+										}
+
+										]);
+							}
+				}
+			})
+			.state('frontendtemplate.sortable',{
+				url:'sortable',
+				templateUrl : "workbench/sortable/list.html",
+				data : {pageTitle:''},
+				controller:'sortablectrl',
+				resolve : {
+					loadPlugin : function($ocLazyLoad) {
+								return $ocLazyLoad
+										.load([ {
+											name : 'Module.sortable',
+											files : [
+													'./workbench/sortable/sortableservice.js',
+													'./workbench/sortable/sortablectrl.js',
+													'../asserts/js/plugin/sortable/angular-sortable-view.min.js'],
+											serie : true
+										}
+
+										]);
+							}
+				}
+			})
+			.state('frontendtemplate.treemenu',{
+				url:'treemenu',
+				templateUrl : "workbench/treemenu/list.html",
+				data : {pageTitle:''},
+				controller:'',
+				resolve : {
+					loadPlugin : function($ocLazyLoad) {
+								return $ocLazyLoad
+										.load([ {
+											name : 'Module.treemenu',
+											files : [
+													'../asserts/css/plugins/angulartree/tree-control-attribute.css',
+													'../asserts/css/plugins/angulartree/tree-control.css',
+													'../asserts/css/plugins/angulartree/index.css',
+													'../asserts/js/plugin/angulartree/angular-tree-control.js',
+													'../asserts/js/plugin/angulartree/index.js'],
+											serie : true
+										}
+
+										]);
+							}
+				}
+			})
+			.state('frontendtemplate.uitab',{
+				url:'uitab',
+				templateUrl : "workbench/uitab/list.html",
+				data : {pageTitle:''},
+				controller:'uitabctrl',
+				resolve : {
+					loadPlugin : function($ocLazyLoad) {
+								return $ocLazyLoad
+										.load([ {
+											name : 'Module.uitab',
+											files : [
+													'./workbench/uitab/uitabservice.js',
+													'./workbench/uitab/uitabctrl.js',
+													'../asserts/js/plugin/ngtab/tabs.js'],
+											serie : true
+										}
+
+										]);
+							}
+				}
+			})
+			.state('frontendtemplate.uitabtasty',{
+				url:'uitabtasty',
+				templateUrl : "workbench/uitabtasty/list.html",
+				data : {pageTitle:''},
+				controller:'uitabtastyctrl',
+				resolve : {
+					loadPlugin : function($ocLazyLoad) {
+								return $ocLazyLoad
+										.load([ {
+											name : 'Module.uitabtasty',
+											files : [
+													'./workbench/uitabtasty/uitabtastyService.js',
+													'./workbench/uitabtasty/uitabtastyctrl.js',
+													'../asserts/js/plugin/gtilesTasty/gtiles-tasty.js'],
+											serie : true
+										}
+
+										]);
+							}
+				}
+			})
+			.state('frontendtemplate.treemenutable',{
+				url:'treemenutable',
+				templateUrl : "workbench/treemenutable/list.html",
+				data : {pageTitle:''},
+				controller:'treemenutablectrl',
+				resolve : {
+					loadPlugin : function($ocLazyLoad) {
+								return $ocLazyLoad
+										.load([ {
+											name : 'Module.treemenutable',
+											files : [
+													'./workbench/treemenutable/treemenutableservice.js',
+													'./workbench/treemenutable/treemenutablectrl.js',
+													'../asserts/css/plugins/angulartreetable/tree-control-attribute.css',
+													'../asserts/css/plugins/angulartreetable/tree-control.css',
+													'../asserts/js/plugin/angulartreetable/angular-tree-control.js'],
+											serie : true
+										}
+
+										]);
+							}
+				}
 			});
 
 }

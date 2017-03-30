@@ -1,6 +1,6 @@
 app.controller('uiselectctrl',function($scope,uiselectservice) {
 	
-	$scope.url="components/workbenchdemo/uiselect/selectdata.json";
+	$scope.url="./workbench/uiselect/selectdata.json";
 	$scope.a=null;
 	
     $scope.d=function(){

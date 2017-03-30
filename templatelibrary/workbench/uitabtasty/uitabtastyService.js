@@ -1,6 +1,5 @@
 
-var modules = getExistModule(['ngTasty','gtilesTasty']);
-var app = angular.module('Module.uitabtasty',modules);
+var app = angular.module('Module.uitabtasty',['ngTasty','gtilesTasty']);
 app.factory('uitabtastyService',function($http){
 	var service = {};
 	var CONTROLLER_URL = "../workbench/swbuser";

@@ -7,5 +7,5 @@ $scope.savedata=function(){
 		$scope.data.items[index].attachOrder=index;
 	})
 }
-$scope.photosArray=[{url:"components/workbenchdemo/sortable/img/1.jpg"},{url:"components/workbenchdemo/sortable/img/555.jpg"},{url:"components/workbenchdemo/sortable/img/666.jpg"}]
+$scope.photosArray=[{url:"./workbench/sortable/img/1.jpg"},{url:"./workbench/sortable/img/555.jpg"},{url:"./workbench/sortable/img/666.jpg"}]
 });
