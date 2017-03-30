@@ -1,8 +1,11 @@
 # 快来学workbench
 
-## 控件模板
+## 使用说明
 
-## 界面模板
+- 通过git获取界面源代码。
+- 通过nginx或其他服务来运行。
+- 访问地址：[link](http://localhost/klxdemo/index.html)
 
+## 控件库
 
-
+## 模版库
