@@ -76,7 +76,8 @@
 	      options: {
 	        help: 'Help',
 	        fullscreen: 'Full Screen',
-	        codeview: 'Code View'
+	        codeview: 'Code View',
+	        preview:'preview'
 	      },
 	      paragraph: {
 	        paragraph: 'Paragraph',

@@ -175,6 +175,7 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider,
 													'../asserts/css/plugins/textedit/summernote.css',
 													'../asserts/css/plugins/textedit/summernote-bs3.css',
 													'../asserts/js/plugin/textedit/summernote.min.js',
+													//'../asserts/js/plugin/textedit/summernote.js',
 													'../asserts/js/plugin/textedit/angular-summernote.min.js'],
 											serie : true
 										}
