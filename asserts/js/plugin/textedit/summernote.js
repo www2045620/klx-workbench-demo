@@ -2134,7 +2134,8 @@
 	      options: {
 	        help: '帮助',
 	        fullscreen: '全屏',
-	        codeview: '源代码'
+	        codeview: '源代码',
+          preview:'预览'
 	      },
 	      paragraph: {
 	        paragraph: '段落',
@@ -5298,9 +5299,11 @@
           ui.dropdownCheck({
             className: 'dropdown-fontname',
             checkClassName: options.icons.menuCheck,
-            items: options.fontNames.filter(self.isFontInstalled),
+            //items: options.fontNames.filter(self.isFontInstalled),
+            items: options.klxFontNames,//fix fontNames by songhq 
             template: function (item) {
-              return '<span style="font-family:' + item + '">' + item + '</span>';
+              //return '<span style="font-family:' + item + '">' + item + '</span>';
+              return '<span style="font-family:' + item.value + '">' + item.text + '</span>';
             },
             click: context.createInvokeHandler('editor.fontName')
           })
@@ -5591,6 +5594,16 @@
         }).render();
       });
 
+      // add preview fix by songhq 
+      context.memo('button.preview', function () {
+        return ui.button({
+          className: 'btn-preview',
+          contents: ui.icon(options.icons.preview),
+          tooltip: lang.options.preview,
+          click: context.createInvokeHandler('previewDialog.show')
+        }).render();
+      });
+
       context.memo('button.redo', function () {
         return ui.button({
           contents: ui.icon(options.icons.redo),
@@ -5729,6 +5742,7 @@
     };
 
     this.updateCurrentStyle = function () {
+      //debugger;
       var styleInfo = context.invoke('editor.currentStyle');
       this.updateBtnStates({
         '.note-btn-bold': function () {
@@ -5752,6 +5766,7 @@
       });
 
       if (styleInfo['font-family']) {
+        
         var fontNames = styleInfo['font-family'].split(',').map(function (name) {
           return name.replace(/[\'\"]/g, '')
             .replace(/\s+$/, '')
@@ -5764,7 +5779,15 @@
           var isChecked = ($(this).data('value') + '') === (fontName + '');
           this.className = isChecked ? 'checked' : '';
         });
-        $toolbar.find('.note-current-fontname').text(fontName);
+        //set fontText fix by songhq 
+        var fontText = "";
+        $.each(context.options.klxFontNames,function(){
+          if(this.value == fontName){
+            fontText = this.text;
+            return;
+          }
+        });
+        $toolbar.find('.note-current-fontname').text(fontText?fontText:fontName);
       }
 
       if (styleInfo['font-size']) {
@@ -6469,6 +6492,59 @@
     };
   };
 
+  //add preview by songhq
+  var PreviewDialog = function(context){
+    var self = this;
+    var ui = $.summernote.ui;
+    var $editor = context.layoutInfo.editor;
+    var options = context.options;
+    var lang = options.langInfo;
+    this.initialize = function () {
+      var $container = options.dialogsInBody ? $(document.body) : $editor;
+
+      var footer = '<button href="#" class="btn btn-default" data-dismiss="modal">'+lang.shortcut.close+'</button>';
+
+      this._dialog = function(context){
+        var body = context.code();
+        return ui.dialog({
+          title: lang.options.preview,
+          fade: options.dialogsFade,
+          body: body,
+          footer: footer,
+          callback: function ($node) {
+           $node.find('.modal-dialog').addClass('modal-lg');
+           $node.find('.modal-body').css({
+              'max-height': 500,
+              'overflow-y': 'scroll'
+            });
+        }
+        }).render().appendTo($container);
+      }
+      this.$dialog = this._dialog(context);
+    };
+
+    this.destroy = function () {
+      ui.hideDialog(this.$dialog);
+      this.$dialog.remove();
+    };
+    this.showPreviewDialog = function () {
+      return $.Deferred(function (deferred) {
+        ui.onDialogShown(self.$dialog, function () {
+          context.triggerEvent('dialog.shown');
+          deferred.resolve();
+        });
+        ui.showDialog(self._dialog(context));
+      }).promise();
+    };
+    this.show = function () {
+      context.invoke('editor.saveRange');
+      this.showPreviewDialog().then(function () {
+        context.invoke('editor.restoreRange');
+      });
+    };
+
+  }
+
   var HelpDialog = function (context) {
     var self = this;
     var ui = $.summernote.ui;
@@ -6866,6 +6942,7 @@
         'imagePopover': ImagePopover,
         'videoDialog': VideoDialog,
         'helpDialog': HelpDialog,
+        'previewDialog':PreviewDialog,//add preview by songhq
         'airPopover': AirPopover
       },
 
@@ -6876,13 +6953,13 @@
       // toolbar
       toolbar: [
         ['style', ['style']],
-        ['font', ['bold', 'underline', 'clear']],
-        ['fontname', ['fontname']],
+        ['font', ['bold','italic', 'underline', 'clear']],
+        ['fontname', ['fontname','fontsize']],
         ['color', ['color']],
         ['para', ['ul', 'ol', 'paragraph']],
         ['table', ['table']],
         ['insert', ['link', 'picture', 'video']],
-        ['view', ['fullscreen', 'codeview', 'help']]
+        ['view', ['fullscreen', 'codeview','preview', 'help']]
       ],
 
       // popover
@@ -6923,6 +7000,20 @@
         'Arial', 'Arial Black', 'Comic Sans MS', 'Courier New',
         'Helvetica Neue', 'Helvetica', 'Impact', 'Lucida Grande',
         'Tahoma', 'Times New Roman', 'Verdana'
+      ],
+      klxFontNames:[
+        {'value':"Microsoft YaHei",'text':'微软雅黑'},
+        {'value':'SimSun','text':'宋体'},
+        {'value':'NSimSun','text':'新宋体'},
+        {'value':'FangSong','text':'仿宋'},
+        {'value':'KaiTi','text':'楷体'},
+        {'value':'SimHei','text':'黑体'},
+        {'value':'Arial','text':'Arial'},
+        {'value':'Arial Black','text':'Arial Black'},
+        {'value':'Times New Roman','text':'Times New Roman'},
+        {'value':'Courier New','text':'Courier New'},
+        {'value':'Tahoma','text':'Tahoma'},
+        {'value':'Verdana','text':'Verdana'}
       ],
 
       fontSizes: ['8', '9', '10', '11', '12', '14', '18', '24', '36'],
@@ -7069,7 +7160,8 @@
         'underline': 'note-icon-underline',
         'undo': 'note-icon-undo',
         'unorderedlist': 'note-icon-unorderedlist',
-        'video': 'note-icon-video'
+        'video': 'note-icon-video',
+        'preview':'glyphicon glyphicon-eye-open'
       }
     }
   });
