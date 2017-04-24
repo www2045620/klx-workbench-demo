@@ -77,10 +77,27 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider,
 							loadPlugin : function($ocLazyLoad) {
 								return $ocLazyLoad
 										.load([ {
-											name : 'Module.myForm',
+											name : 'Module.StandardList',
 											files : [
 													'./workbench/StandardList/StandardListService.js',
-													'./workbench/StandardList/StandardListCtrl.js'],
+													'./workbench/StandardList/StandardListCtrl.js',
+													'../asserts/js/plugin/daterangepicker/moment.min.js',
+													'../asserts/js/plugin/daterangepicker/daterangepicker.js',
+													'../asserts/js/plugin/daterangepicker/angular-daterangepicker.js',
+													'../asserts/css/plugins/daterangepicker/daterangepicker-bs3.css',
+													'../asserts/js/plugin/select/select.min.js',
+													'../asserts/js/plugin/select/lodash.min.js',
+													'../asserts/js/plugin/select/myselect.min.js',
+													'../asserts/css/plugins/select/select.min.css',
+													'../asserts/css/plugins/select/myselect.css',
+													'../asserts/js/plugin/timepicker/bootstrap-datetimepicker.fr.js',
+													'../asserts/js/plugin/timepicker/bootstrap-datetimepicker.min.js',
+													'../asserts/js/plugin/timepicker/datatime.directive.js',
+													'../asserts/css/plugins/timepicker/bootstrap-datetimepicker.min.css',
+													'../asserts/css/plugins/angulartreetable/tree-control-attribute.css',
+													'../asserts/css/plugins/angulartreetable/tree-control.css',
+													'../asserts/js/plugin/angulartreetable/angular-tree-control.js',
+													'../asserts/js/plugin/selectTree/select.js'],
 											serie : true
 										}
 
@@ -89,7 +106,7 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider,
 						}
 			})
 			.state('frontendtemplate.uploading',{
-				url : 'StandardList/:data',
+				url : 'uploading/:data',
 				templateUrl : "workbench/uploading/list.html",
 						data : {
 							pageTitle : ''

@@ -34,7 +34,7 @@ app.factory('StandardListService',function($http,$uibModal,$log) {
 	service.dataGrid=function(griddata){
 		return $http({
 			method : "get",
-			url    : "components/workbenchdemo/StandardList/response.json"
+			url    : "./worbench/StandardList/response.json"
 		})
 		.success(function(data){
 			griddata=data.data.resultList;
@@ -43,7 +43,7 @@ app.factory('StandardListService',function($http,$uibModal,$log) {
 	service.showuserdialog = function(size,items){
 		var modalInstance = $uibModal.open({
 		      animation: true,
-		      templateUrl: './components/workbenchdemo/StandardList/myModalContent.html',
+		      templateUrl: './worbench/StandardList/myModalContent.html',
 		      controller: 'ModalInstanceCtrl',
 		      size: size,
 		      resolve: {
@@ -55,7 +55,7 @@ app.factory('StandardListService',function($http,$uibModal,$log) {
 		return modalInstance;
 	}
 	service.dataGrid = function(params, paramsObj) {
-		var url = "components/workbenchdemo/StandardList/response.json";
+		var url = "./worbench/StandardList/response.json";
 		return $http
 			.get(url + "?" + params)
 			.then(
