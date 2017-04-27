@@ -93,55 +93,92 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider,
 							}
 						}
 			})
-			.state('frontendtemplate.uploading',{
-				url : 'uploading/:data',
-				templateUrl : "workbench/uploading/list.html",
+			.state('treeComponent', {
+				abstract : true,
+				url : "/treeComponent",
+				templateUrl : "views/common/content.html",
+			})
+			.state('treeComponent.tree',{
+				url : 'tree/:data',
+				templateUrl : "workbench/tree/list.html",
 						data : {
 							pageTitle : ''
 						},
-						controller : "uploadingctrl",
+						controller : "treectrl",
 						resolve : {
 							loadPlugin : function($ocLazyLoad) {
 								return $ocLazyLoad
-										.load([ {
-											name : 'Module.uploading',
-											files : [
-													'./workbench/uploading/uploadingservice.js',
-													'./workbench/uploading/uploadingctrl.js',
-													'../asserts/js/plugin/fileupload/ng-file-upload-shim.min.js',
-													'../asserts/js/plugin/fileupload/ng-file-upload.min.js'],
-											serie : true
-										}
-
-										]);
+									.load([{
+										name : 'Module.tree',
+										files : [
+												'./workbench/tree/treeservice.js',
+												'./workbench/tree/treectrl.js',
+												'../asserts/css/plugins/angulartreetable/tree-control-attribute.css',
+												'../asserts/css/plugins/angulartreetable/tree-control.css',
+												'../asserts/js/plugin/angulartreetable/angular-tree-control.js'
+												],
+										serie : true
+									}]);
 							}
 						}
 			})
-			.state('frontendtemplate.uiselect',{
-				url:'uiselect',
-				templateUrl : "workbench/uiselect/list.html",
+			.state('treeComponent.selectTree',{
+				url:'selectTree/:data',
+				templateUrl : "workbench/selectTree/list.html",
 				data : {pageTitle:''},
-				controller:'uiselectctrl',
+				controller:'selectTreectrl',
 				resolve : {
 					loadPlugin : function($ocLazyLoad) {
-								return $ocLazyLoad
-										.load([ {
-											name : 'Module.uiselect',
-											files : [
-													'./workbench/uiselect/uiselectservice.js',
-													'./workbench/uiselect/uiselectctrl.js',
-													'../asserts/js/plugin/select/select.min.js',
-													'../asserts/js/plugin/select/lodash.min.js',
-													'../asserts/js/plugin/select/myselect.min.js',
-													'../asserts/css/plugins/select/select.min.css',
-													'../asserts/css/plugins/select/myselect.css'],
-											serie : true
-										}
-
-										]);
+							return $ocLazyLoad
+									.load([ {
+										name : 'Module.selectTree',
+										files : [
+												'./workbench/selectTree/selectTreeservice.js',
+												'./workbench/selectTree/selectTreectrl.js',
+												'../asserts/css/plugins/angulartreetable/tree-control-attribute.css',
+												'../asserts/css/plugins/angulartreetable/tree-control.css',
+												'../asserts/js/plugin/angulartreetable/angular-tree-control.js',
+												'../asserts/js/plugin/selectTree/select.js'
+												],
+										serie : true
+									}]);
 							}
 				}
 			})
+			.state('uploading', {
+	            url: "/uploading",
+	            templateUrl: "views/common/content.html",
+	            data: { pageTitle: '' },
+	            resolve: {
+	                loadPlugin: function ($ocLazyLoad) {
+	                    return $ocLazyLoad.load([
+	                        {
+	                            files: []
+	                        }
+	                    ]);
+	                }
+	            }
+	        })
+			.state('uploading.fileuploade', {
+	            url: "/fileuploade/:data",
+	            templateUrl: "workbench/fileuploade/list.html",
+	            data: { pageTitle: '' },
+	            controller:'fileuploadectrl',
+	            resolve: {
+	                loadPlugin: function ($ocLazyLoad) {
+	                    return $ocLazyLoad
+	                    .load([{
+	                        	name : 'Module.fileuploade',
+	                            files: ['./workbench/fileuploade/fileuploadeservice.js',
+	                            		'./workbench/fileuploade/fileuploadectrl.js',
+										'../asserts/js/plugin/fileupload/ng-file-upload-shim.min.js',
+										'../asserts/js/plugin/fileupload/ng-file-upload.min.js'
+									   ]
+	                        }
+	                    ]);
+	                }
+	            }
+	        })
 			.state('frontendtemplate.treegrid',{
 				url:'treegrid',
 				templateUrl : "workbench/treegrid/list.html",

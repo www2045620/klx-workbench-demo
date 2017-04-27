@@ -1,0 +1,75 @@
+<div class="row wrapper border-bottom white-bg page-heading">
+	<div class="col-lg-10">
+		<h2>这个是当前页的标题</h2>
+		<ol class="breadcrumb">
+			<li>
+				<a href="index.html">主页</a>
+			</li>
+			<li>
+				<a>树</a>
+			</li>
+			<li class="active">
+				<strong>树组件示例</strong>
+			</li>
+		</ol>
+	</div>
+	<div class="col-lg-2">
+		<!-- 这里为留白区域如无特殊用途，请勿在此处填写内容-->
+	</div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeInRight">
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="ibox float-e-margins">
+				<div class="ibox-content">
+					<div class="row">
+							 <div class="form-group"><label class="col-sm-2 control-label">文件名称：</label>
+	                            <label class="col-sm-6  control-label" style="text-align:left">{{file.name}}</label>          
+	                            <div class="col-sm-2 ">
+	                            	<div class="btn btn-primary" ngf-select ng-model="file" name="file"  ngf-max-size="20MB" >选择文件</div>
+	                            </div>
+	                            <div class="col-sm-2 ">
+	                            	<button class="btn btn-success" type="submit" ng-click="uploadfilie(file)" ng-disabled="!file.name">确认上传	</button>
+	                            </div>
+	                        </div>                  
+                        	<div class="hr-line-dashed"></div>
+	                       	<!-- 进度条-->
+	                        <div class="form-group">
+	                          	<div class="col-sm-12">
+									<div class="progress " ng-class="q?'progress-bar-striped active':'' "><!-- progress-bar-striped active 这俩个类名用于使进度条滚动起来 -->
+								  		<div class="progress-bar progress-bar-info " role="progressbar"  ng-style="barstyle"></div>
+									</div>
+	                        	</div>
+	                        </div>	
+						<div class="col-sm-12">
+							<pre>
+				            	<h3 class="text-danger">树控件使用说明</h3>
+				            	<p>一、使用前准备</p>
+				            	<p>1.时间范围选择需要依赖treeControl模块，且需要加入以下js文件：tree-control-attribute.css,tree-control.css,angular-tree-control.js</p>
+				            	<p>html中使用标签引入：&lt;treecontrol class=&quot;tree-light&quot; tree-model=&quot;dataForTheTree&quot; options=&quot;treeOptions&quot; on-selection=&quot;showSelected(node)&quot; selected-node=&quot;node1&quot; expanded-nodes=&quot;dataForTheTreeSel&quot;&gt;
+			&lt;span class=&quot;{{node.id}}&quot;&gt;{{node.name}}&lt;/span&gt;
+							&lt;/treecontrol&gt;
+				            	</p>
+				            	<p>二、使用</p>
+								<p>1.作用域定义使用对象定义，如：tree-model={......};，详情查看treectrl中数据示例</p>
+								<p>2.options，对象，定义了树控件的配置项，.....</p>
+								<p>3.on-selection，对象，定义了树控件的配置项，.....</p>
+								<p>4.expanded-nodes，对象，定义了树控件的配置项，.....</p>
+								<p>5.获取日期选择对象，开始时间：$scope.dateRange.date1.startDate；结束时间：$scope.dateRange.date1.endDate</p>
+								<p>6.获取格式化日期字符串，使用momentJs方法，moment(日期对象).format(&quot;YYYY-MM-DD HH:mm:ss&quot;)</p>
+								<p>7.选择器赋值，可以直接赋值定义好格式的日期字符串，如：var date=&quot;2016-12-25 10:10:23&quot;;，也可以使用日期对象，如：var date=moment(&quot;2016-12-25 10:10:23&quot;,&quot;YYYY-MM-DD HH:mm:ss&quot;)。然后将日期值赋到对应的绑定值上即可$scope.dateRange={"date1":{"startDate":date}};</p>
+				            </pre>
+						</div>
+					</div>
+					<div>
+						
+					</div>
+		            <div>
+						
+		            </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
