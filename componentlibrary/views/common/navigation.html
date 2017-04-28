@@ -72,6 +72,77 @@
 					</li>
 				</ul>
 			</li>
+			<li ng-class="{active: $state.includes('editor')}" >
+				<a href="">
+					<i class="glyphicon glyphicon-gift"></i> 
+					<span class="nav-label">富文本</span>
+					<span class="fa arrow"></span>
+				</a>
+				<ul class="nav nav-second-level collapse" ng-class="{in: $state.includes('editor')}">
+					<li ui-sref-active="active">
+						<a ui-sref="editor.summernote">
+							富文本
+						</a>
+					</li>
+				</ul>
+			</li>
+			<li ng-class="{active: $state.includes('classify')}" >
+				<a href="">
+					<i class="glyphicon glyphicon-gift"></i> 
+					<span class="nav-label">分类</span>
+					<span class="fa arrow"></span>
+				</a>
+				<ul class="nav nav-second-level collapse" ng-class="{in: $state.includes('classify')}">
+					<li ui-sref-active="active">
+						<a ui-sref="classify.threeLevel">
+							三级分类
+						</a>
+					</li>
+				</ul>
+			</li>
+			<li ng-class="{active: $state.includes('select')}" >
+				<a href="">
+					<i class="glyphicon glyphicon-gift"></i> 
+					<span class="nav-label">下拉</span>
+					<span class="fa arrow"></span>
+				</a>
+				<ul class="nav nav-second-level collapse" ng-class="{in: $state.includes('select')}">
+					<li ui-sref-active="active">
+						<a ui-sref="select.uiselect">
+							下拉选择
+						</a>
+					</li>
+				</ul>
+			</li>
+			<li ng-class="{active: $state.includes('tab')}" >
+				<a href="">
+					<i class="glyphicon glyphicon-gift"></i> 
+					<span class="nav-label">tab</span>
+					<span class="fa arrow"></span>
+				</a>
+				<ul class="nav nav-second-level collapse" ng-class="{in: $state.includes('tab')}">
+					<li ui-sref-active="active">
+						<a ui-sref="tab.uitab">
+							tab
+						</a>
+					</li>
+				</ul>
+			</li>
+			<li ng-class="{active: $state.includes('checkbox')}" >
+				<a href="">
+					<i class="glyphicon glyphicon-gift"></i> 
+					<span class="nav-label">全选</span>
+					<span class="fa arrow"></span>
+				</a>
+				<ul class="nav nav-second-level collapse" ng-class="{in: $state.includes('checkbox')}">
+					<li ui-sref-active="active">
+						<a ui-sref="checkbox.allchecked">
+							全选
+						</a>
+					</li>
+				</ul>
+			</li>
+			
 				<!--<ul class="nav nav-second-level collapse in"
 					ng-class="{in: $state.includes('frontendtemplate')}">
 					<li ui-sref-active="active"><a

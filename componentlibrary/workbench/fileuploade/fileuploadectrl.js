@@ -1,9 +1,8 @@
-app.controller('fileuploadectrl',function($scope) {
+app.controller('fileuploadectrl',function($scope,Upload) {
 	$scope.uploadfilie = function (dataUrl) {
         Upload.upload({
             url: '../workbench/courseinfo/course/uploadCourseImage.json',
         data: {
-        	//'queryCourseId':$scope.courseImage.courseId,
             file: dataUrl
         },
     }).progress(function (evt) {

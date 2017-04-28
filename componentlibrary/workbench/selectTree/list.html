@@ -76,7 +76,7 @@
 						</div>
 						<div class="col-sm-8">
 							<pre>
-				            	<h3 class="text-danger">树控件使用说明</h3>
+				            	<h3 class="text-danger">下拉选树型控件使用说明</h3>
 				            	<p>一、使用前准备</p>
 				            	<p>1.时间范围选择需要依赖selectTree模块，且需要加入以下js文件：tree-control-attribute.css,tree-control.css,angular-tree-control.js,select.js</p>
 				            	<p>html中使用标签引入：
@@ -91,13 +91,11 @@
 	&lt;/select-tree&gt;
 				            	</p>
 				            	<p>二、使用</p>
-								<p>1.作用域定义使用对象定义，如：tree-model={......};，详情查看treectrl中数据示例</p>
-								<p>2.options，对象，定义了树控件的配置项，.....</p>
-								<p>3.on-selection，对象，定义了树控件的配置项，.....</p>
-								<p>4.expanded-nodes，对象，定义了树控件的配置项，.....</p>
-								<p>5.获取日期选择对象，开始时间：$scope.dateRange.date1.startDate；结束时间：$scope.dateRange.date1.endDate</p>
-								<p>6.获取格式化日期字符串，使用momentJs方法，moment(日期对象).format(&quot;YYYY-MM-DD HH:mm:ss&quot;)</p>
-								<p>7.选择器赋值，可以直接赋值定义好格式的日期字符串，如：var date=&quot;2016-12-25 10:10:23&quot;;，也可以使用日期对象，如：var date=moment(&quot;2016-12-25 10:10:23&quot;,&quot;YYYY-MM-DD HH:mm:ss&quot;)。然后将日期值赋到对应的绑定值上即可$scope.dateRange={"date1":{"startDate":date}};</p>
+								<p>1.设置tree-data，值为树的数据源。详情查看ctrl中数据示例</p>
+								<p>2.设置select-tree-options，定义了树控件的配置项，具体请看<a href="https://github.com/wix/angular-tree-control">git-tree</a></p>
+								<p>3.设置on-selection属性，值为树被选中时触发该方法</p>
+								<p>4.设置selected-tree-node，对象，值为变量,树中选中的节点对象</p>
+								<p>5.设置show-direction属性，值为"top"或"bottom"，树菜单在输入框的上或下</p>
 				            </pre>
 						</div>
 					</div>

@@ -64,14 +64,7 @@
 			            	<p>2.设置默认显示时间start-date，如不设置，则默认时间为今天</p>
 			            	<p>3.data-link-field可选择将使用值赋值指定input中（一般用于做表单提交）</p>
 			            	<p>4.data-date-format设置日期格式，可选值为 p, P, h, hh, i, ii, s, ss, d, dd, m, mm, M, MM, yy, yyyy 的任意组合</p>
-			            	
-			            	
-			            	<p>html中使用标签引入：&lt;input date-range-picker class=&quot;form-control date-picker&quot; type=&quot;text&quot; ng-model=&quot;dateRange.date1&quot; options='{separator: &quot;~&quot;}'/&gt;</p>
-							<p>1.作用域定义使用对象定义，如：$scope.dateRange={&quot;date1&quot;:&quot;&quot;};</p>
-							<p>2.options，对象，定义了日期选择控件的配置项，现在用到的有separator属性，含义是开始和结束日期的分隔符</p>
-							<p>3.获取日期选择对象，开始时间：$scope.dateRange.date1.startDate；结束时间：$scope.dateRange.date1.endDate</p>
-							<p>4.获取格式化日期字符串，使用momentJs方法，moment(日期对象).format(&quot;YYYY-MM-DD HH:mm:ss&quot;)</p>
-							<p>5.选择器赋值，可以直接赋值定义好格式的日期字符串，如：var date=&quot;2016-12-25 10:10:23&quot;;，也可以使用日期对象，如：var date=moment(&quot;2016-12-25 10:10:23&quot;,&quot;YYYY-MM-DD HH:mm:ss&quot;)。然后将日期值赋到对应的绑定值上即可$scope.dateRange={"date1":{"startDate":date}};</p>
+			            	<p>5.获取格式化日期字符串，使用momentJs方法，moment(日期对象).format(&quot;YYYY-MM-DD HH:mm:ss&quot;)</p>
 			            </pre>
 		            </div>
 		            <div>

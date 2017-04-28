@@ -201,51 +201,182 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider,
 							}
 				}
 			})
-			.state('frontendtemplate.textedit',{
-				url:'textedit',
-				templateUrl : "workbench/textedit/list.html",
+			.state('editor', {
+	            url: "/editor",
+	            templateUrl: "views/common/content.html",
+	            data: { pageTitle: '' },
+	            resolve: {
+	                loadPlugin: function ($ocLazyLoad) {
+	                    return $ocLazyLoad.load([
+	                        {
+	                            files: []
+	                        }
+	                    ]);
+	                }
+	            }
+	        })
+			.state('editor.summernote',{
+				url:'editor',
+				templateUrl : "workbench/summernote/list.html",
 				data : {pageTitle:''},
-				controller:'texteditctrl',
+				controller:'summernotectrl',
+				resolve : {
+					loadPlugin : function($ocLazyLoad) {
+								return $ocLazyLoad
+									.load([ {
+										name : 'Module.summernote',
+										files : [
+												'./workbench/summernote/summernoteservice.js',
+												'./workbench/summernote/summernotectrl.js',
+												'../asserts/css/plugins/textedit/summernote.css',
+												'../asserts/css/plugins/textedit/summernote-bs3.css',
+												'../asserts/js/plugin/textedit/summernote.min.js',
+												'../asserts/js/plugin/textedit/angular-summernote.min.js'],
+										serie : true
+									}
+									]);
+							}
+				}
+			})
+			.state('classify', {
+	            url: "/classify",
+	            templateUrl: "views/common/content.html",
+	            data: { pageTitle: '' },
+	            resolve: {
+	                loadPlugin: function ($ocLazyLoad) {
+	                    return $ocLazyLoad.load([
+	                        {
+	                            files: []
+	                        }
+	                    ]);
+	                }
+	            }
+	        })
+			.state('classify.threeLevel',{
+				url:'threeLevel',
+				templateUrl : "workbench/threeLevel/list.html",
+				data : {pageTitle:''},
+				controller:'threeLevelctrl',
 				resolve : {
 					loadPlugin : function($ocLazyLoad) {
 								return $ocLazyLoad
 										.load([ {
-											name : 'Module.textedit',
+											name : 'Module.threeLevel',
 											files : [
-													'./workbench/textedit/texteditservice.js',
-													'./workbench/textedit/texteditctrl.js',
-													'../asserts/css/plugins/textedit/summernote.css',
-													'../asserts/css/plugins/textedit/summernote-bs3.css',
-													'../asserts/js/plugin/textedit/summernote.min.js',
-													//'../asserts/js/plugin/textedit/summernote.js',
-													'../asserts/js/plugin/textedit/angular-summernote.min.js'],
+													'./workbench/threeLevel/threeLevelservice.js',
+													'./workbench/threeLevel/threeLevelctrl.js'
+													],
 											serie : true
-										}
-
-										]);
+										}]);
 							}
 				}
 			})
-			.state('frontendtemplate.classify',{
-				url:'classify',
-				templateUrl : "workbench/classify/list.html",
+			.state('select', {
+	            url: "/select",
+	            templateUrl: "views/common/content.html",
+	            data: { pageTitle: '' },
+	            resolve: {
+	                loadPlugin: function ($ocLazyLoad) {
+	                    return $ocLazyLoad.load([
+	                        {
+	                            files: []
+	                        }
+	                    ]);
+	                }
+	            }
+	        })
+			.state('select.uiselect',{
+				url:'uiselect',
+				templateUrl : "workbench/uiselect/list.html",
 				data : {pageTitle:''},
-				controller:'classifyctrl',
+				controller:'uiselectctrl',
 				resolve : {
 					loadPlugin : function($ocLazyLoad) {
-								return $ocLazyLoad
-										.load([ {
-											name : 'Module.classify',
-											files : [
-													'./workbench/classify/classifyservice.js',
-													'./workbench/classify/classifyctrl.js'],
-											serie : true
-										}
-
-										]);
-							}
+						return $ocLazyLoad
+							.load([ {
+								name : 'Module.uiselect',
+								files : [
+										'./workbench/uiselect/uiselectservice.js',
+										'./workbench/uiselect/uiselectctrl.js',
+										'../asserts/js/plugin/select/select.min.js',
+										'../asserts/js/plugin/select/lodash.min.js',
+										'../asserts/js/plugin/select/myselect.min.js',
+										'../asserts/css/plugins/select/select.min.css',
+										'../asserts/css/plugins/select/myselect.css'
+										],
+								serie : true
+							}]);
+					}
 				}
 			})
+			.state('tab', {
+	            url: "/tab",
+	            templateUrl: "views/common/content.html",
+	            data: { pageTitle: '' },
+	            resolve: {
+	                loadPlugin: function ($ocLazyLoad) {
+	                    return $ocLazyLoad.load([
+	                        {
+	                            files: []
+	                        }
+	                    ]);
+	                }
+	            }
+	        })
+			.state('tab.uitab',{
+				url:'uitab',
+				templateUrl : "workbench/uitab/list.html",
+				data : {pageTitle:''},
+				controller:'uitabctrl',
+				resolve : {
+					loadPlugin : function($ocLazyLoad) {
+						return $ocLazyLoad
+							.load([ {
+								name : 'Module.uitab',
+								files : [
+										'./workbench/uitab/uitabservice.js',
+										'./workbench/uitab/uitabctrl.js',
+										'../asserts/js/plugin/ngtab/tabs.js'
+										],
+								serie : true
+							}]);
+					}
+				}
+			})
+			.state('checkbox', {
+	            url: "/checkbox",
+	            templateUrl: "views/common/content.html",
+	            data: { pageTitle: '' },
+	            resolve: {
+	                loadPlugin: function ($ocLazyLoad) {
+	                    return $ocLazyLoad.load([
+	                        {
+	                            files: []
+	                        }
+	                    ]);
+	                }
+	            }
+	        })
+			.state('checkbox.allchecked',{
+				url:'/allchecked',
+				templateUrl : "workbench/uitab/list.html",
+				data : {pageTitle:''},
+				controller:'allcheckedctrl',
+				resolve : {
+					loadPlugin : function($ocLazyLoad) {
+						return $ocLazyLoad
+							.load([{
+								name : 'Module.allchecked',
+								files : [
+										'./workbench/allchecked/allcheckedservice.js',
+										'./workbench/allchecked/allcheckedctrl.js'
+										],
+								serie : true
+							}]);
+					}
+				}
+			})
+			
 			.state('frontendtemplate.sortable',{
 				url:'sortable',
 				templateUrl : "workbench/sortable/list.html",
@@ -254,16 +385,14 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider,
 				resolve : {
 					loadPlugin : function($ocLazyLoad) {
 								return $ocLazyLoad
-										.load([ {
+										.load([{
 											name : 'Module.sortable',
 											files : [
 													'./workbench/sortable/sortableservice.js',
 													'./workbench/sortable/sortablectrl.js',
 													'../asserts/js/plugin/sortable/angular-sortable-view.min.js'],
 											serie : true
-										}
-
-										]);
+										}]);
 							}
 				}
 			})
