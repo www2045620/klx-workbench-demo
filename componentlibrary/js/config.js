@@ -359,7 +359,7 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider,
 	        })
 			.state('checkbox.allchecked',{
 				url:'/allchecked',
-				templateUrl : "workbench/uitab/list.html",
+				templateUrl : "workbench/allchecked/list.html",
 				data : {pageTitle:''},
 				controller:'allcheckedctrl',
 				resolve : {
