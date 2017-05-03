@@ -142,6 +142,20 @@
 					</li>
 				</ul>
 			</li>
+			<li ng-class="{active: $state.includes('chart')}" >
+				<a href="">
+					<i class="glyphicon glyphicon-gift"></i> 
+					<span class="nav-label">图表</span>
+					<span class="fa arrow"></span>
+				</a>
+				<ul class="nav nav-second-level collapse" ng-class="{in: $state.includes('chart')}">
+					<li ui-sref-active="active">
+						<a ui-sref="chart.charts">
+							图表
+						</a>
+					</li>
+				</ul>
+			</li>
 			
 				<!--<ul class="nav nav-second-level collapse in"
 					ng-class="{in: $state.includes('frontendtemplate')}">

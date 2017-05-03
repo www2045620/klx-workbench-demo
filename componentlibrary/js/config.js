@@ -376,6 +376,51 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider,
 					}
 				}
 			})
+			.state('chart', {
+	            url: "/chart",
+	            templateUrl: "views/common/content.html",
+	            data: { pageTitle: '' },
+	            resolve: {
+	                loadPlugin: function ($ocLazyLoad) {
+	                    return $ocLazyLoad.load([
+	                        {
+	                            files: []
+	                        }
+	                    ]);
+	                }
+	            }
+	        })
+			.state('chart.charts',{
+				url:'/charts',
+				templateUrl : "workbench/charts/list.html",
+				data : {pageTitle:''},
+				controller:'chartsctrl',
+				resolve : {
+					loadPlugin : function($ocLazyLoad) {
+						return $ocLazyLoad
+							.load([{
+								name : 'Module.charts',
+								files : [
+										'./workbench/charts/chartsservice.js',
+										'./workbench/charts/chartsctrl.js',
+										"../asserts/js/plugin/flot/jquery.flot.js",
+										"../asserts/js/plugin/flot/jquery.flot.time.js",
+										"../asserts/js/plugin/flot/jquery.flot.tooltip.min.js",
+										"../asserts/js/plugin/flot/jquery.flot.spline.js",
+										"../asserts/js/plugin/flot/jquery.flot.resize.js",
+										"../asserts/js/plugin/flot/jquery.flot.pie.js",
+										"../asserts/js/plugin/flot/curvedLines.js",
+										"../asserts/js/plugin/flot/angular-flot.js",
+										
+										
+										"../asserts/js/plugin/chartJs/Chart.js",
+										"../asserts/js/plugin/chartJs/angular-chart.js"
+										],
+								serie : true
+							}]);
+					}
+				}
+			})
 			
 			.state('frontendtemplate.sortable',{
 				url:'sortable',
