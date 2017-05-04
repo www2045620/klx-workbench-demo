@@ -421,6 +421,43 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider,
 					}
 				}
 			})
+			.state('tool', {
+	            url: "/tool",
+	            templateUrl: "views/common/content.html",
+	            data: { pageTitle: '' },
+	            resolve: {
+	                loadPlugin: function ($ocLazyLoad) {
+	                    return $ocLazyLoad.load([
+	                        {
+	                            files: []
+	                        }
+	                    ]);
+	                }
+	            }
+	        })
+			.state('tool.tools',{
+				url:'/tools',
+				templateUrl : "workbench/tools/list.html",
+				data : {pageTitle:''},
+				controller:'toolctrl',
+				resolve : {
+					loadPlugin : function($ocLazyLoad) {
+						return $ocLazyLoad
+							.load([{
+								name : 'Module.tool',
+								files : [
+										'./workbench/tools/toolsservice.js',
+										'./workbench/tools/toolsctrl.js',
+										"../asserts/js/plugin/tools/tools.js",
+										"../asserts/js/plugin/updataValueD/updataValueD.js"
+										],
+								serie : true
+							}]);
+					}
+				}
+			})
+			
+			
 			
 			.state('frontendtemplate.sortable',{
 				url:'sortable',

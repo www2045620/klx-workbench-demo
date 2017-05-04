@@ -15,7 +15,7 @@
                     </a>
                     <ul uib-dropdown-menu class="animated fadeInRight m-t-xs">
                         <li><a href="../index.html">快来学整体库</a></li>
-                        <li><a href="templatelibrary/index.html">快来学模板库</a></li>
+                        <li><a href="../templatelibrary/index.html">快来学模板库</a></li>
                     </ul>
 				</div>
 				<div class="logo-element">IN+</div>
@@ -152,6 +152,20 @@
 					<li ui-sref-active="active">
 						<a ui-sref="chart.charts">
 							图表
+						</a>
+					</li>
+				</ul>
+			</li>
+			<li ng-class="{active: $state.includes('tool')}" >
+				<a href="">
+					<i class="glyphicon glyphicon-gift"></i> 
+					<span class="nav-label">工具</span>
+					<span class="fa arrow"></span>
+				</a>
+				<ul class="nav nav-second-level collapse" ng-class="{in: $state.includes('tool')}">
+					<li ui-sref-active="active">
+						<a ui-sref="tool.tools">
+							工具
 						</a>
 					</li>
 				</ul>

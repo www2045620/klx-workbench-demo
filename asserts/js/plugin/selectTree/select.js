@@ -8,11 +8,15 @@ app.directive("selectTree",function($timeout){
 			searchCriteria:"=",
 			selectedTreeNode:"=",
 			showDirection:"=",
+			showLable:"@",
 			onSelect:"&"
 		},
 		replace:true,
 		link:function(scope,element,attr){
 			var node="";
+			scope.selectedTreeNode={};
+			scope.showLable?"":scope.showLable='title';
+			scope.lable=scope.selectedTreeNode[scope.showLable];
 			scope.showSelected=function(node){
 				newnode = jQuery.extend(true, {}, node);
 				scope.selectedTreeNode=newnode;
@@ -39,10 +43,10 @@ app.directive("selectTree",function($timeout){
 			});
 		},
 		template:	'<div class="form-group" style="position: relative;">'
-						+'<input ng-model="selectedTreeNode.name" ng-focus="showSelectedView()" class="form-control" size="16" type="text" value="" style="transition: all 0.5s;">'
+						+'<input ng-model="selectedTreeNode[showLable]" ng-focus="showSelectedView()" class="form-control" size="16" type="text" value="" style="transition: all 0.5s;">'
 						+'<div ng-show="showSelectedViewStart" ng-class="{false:\'bottom\',true:\'top\'}[showDirection==\'bottom\']" class="selTree" style="transition: all 0.5s;">'
 							+'<treecontrol class="tree-light" tree-model="treeData" options="selectTreeOptions" on-node-toggle="nodeToggle()" on-selection="showSelected(node)" expanded-nodes="dataForTheTreeSel">'
-								+'<span class="{{node.id}}">{{node.name}}</span>'
+								+'<span class="{{node.id}}">{{node[showLable]}}</span>'
 							+'</treecontrol>'
 						+'</div>'
 					+'</div>'
