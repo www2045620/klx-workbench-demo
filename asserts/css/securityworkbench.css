@@ -306,3 +306,15 @@ label {
 	.signin-img-th{
 		max-width:162px;
 	}
+	pre{
+	    white-space: pre-wrap;
+	}
+	.table.fixed{
+		table-layout:fixed;
+	}
+	.text-ellipsis{
+		margin: 0;
+    	overflow: hidden;
+    	text-overflow: ellipsis;
+    	white-space: nowrap;
+	}

@@ -1,3 +1,42 @@
+<style>
+	.selTree{
+		background:#FFF;
+		border:1px solid #CCC;
+	    position: absolute;
+    	padding: 20px 20px 20px 0;
+   	    max-height: 341px;
+    	overflow-y: scroll;
+   	    font-family: Microsoft YaHei,\5FAE\8F6F\96C5\9ED1,sans-serif;
+   	    font-size: 12px;
+	}
+	.selTree.top{
+		top: 105%;
+	}
+	.selTree.bottom{
+		bottom:105%;
+	}
+	.selTree .aa1{font-size: 13px;}
+	/*定义滚动条宽高及背景，宽高分别对应横竖滚动条的尺寸*/
+	 .selTree::-webkit-scrollbar{
+	    width: 8px;
+	    height: 8px;
+	    background-color: #f5f5f5;
+	}
+	/*定义滚动条的轨道，内阴影及圆角*/
+	.selTree::-webkit-scrollbar-track{
+	    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	    border-radius: 5px;
+	    background-color: #f5f5f5;
+	}
+	/*定义滑块，内阴影及圆角*/
+	.selTree::-webkit-scrollbar-thumb{
+	    /*width: 10px;*/
+	    height: 10px;
+	    border-radius: 5px;
+	    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	    background-color: #555;
+	}
+</style>
 <div class="row wrapper border-bottom white-bg page-heading">
 	<div class="col-lg-10">
 		<h2>这个是当前页的标题</h2>
@@ -17,56 +56,6 @@
 		<!-- 这里为留白区域如无特殊用途，请勿在此处填写内容-->
 	</div>
 </div>
-<!--此处演示uib-tab指令与date-picker如何配合使用  -->
-<uib-tabset>
-  <!-- 课程基本信息页签 -->
-    <uib-tab heading="基本信息{{tabmodel.classdate}}" class="nextli" >
-        <input date-range-picker class="form-control date-picker" type="text"  ng-model="tabmodel.classdate" />
-        <div tasty-table bind-resource-callback="getuserdatauitab" bind-init="init"  bind-theme="initTastyTheme" bind-reload="reloadUserdatauitab" >
-                	<table class="table table-gui table-chk  table-striped table-hover table-bordered" >
-						<thead>
-							<tr class="" >
-								<!--请注意，此处使用时为避免表格表现与预期不符，请在每个th上使用类名表明需要几个字不换行，目前有font_2-font_11类名
-								请使用时注意添加-->
-								<th><input type="checkbox" ng-disabled="true" /></th>
-								<th>用户名称</th>
-								<th>显示名称</th>
-								<th>活动状态</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr ng-repeat="row in rows">
-								<td class="text-ellipsis">
-									<p class="small mb0"><input type="checkbox" ng-disabled="true" /></p>
-								</td>
-								<td class="text-ellipsis">
-									<p class="small mb0">{{row.userName}}</p>
-								</td>
-								<td class="text-ellipsis">
-									<p class="small mb0">{{row.displayName}}</p>
-								</td>
-								<td class="text-ellipsis">
-									<p class="small mb0">{{row.activeState=='1'?'启用':'作废'}}</p>
-								</td>
-							</tr>			
-						</tbody>
-						<tfoot>
-							<tr>
-								<td colspan="5" class="text-right">
-									<span></span>
-									<div tasty-pagination  template-url="../common/angularjs/gtiles_paginatione.html"></div>
-								</td>
-							</tr>
-						</tfoot>
-					</table>
-				  </div>
-	   </div>
-	   <div class="modal-footer">
-	   	     <button type="button" class="btn btn-primary" ng-click="usrdatasearchuitab()"  >刷新数据</button>
-       </div>
-    </uib-tab>
-</uib-tabset>
-
 <div class="wrapper wrapper-content animated fadeInRight">
 	<div class="row">
 		<div class="col-lg-12">
@@ -139,6 +128,8 @@
 								<option value="2">搜索条件2</option>
 								<option value="3">搜索条件3</option>
 								<option value="4">搜索条件4</option>
+								<option value="5">搜索条件5</option>
+								<option value="6">搜索条件6</option>
 							</select>
 							<!-- -->
 							<input type="text" class="form-control input-sm" ng-show="searchCriteria==1">
@@ -161,15 +152,215 @@
 								
 								<input type="hidden" id="dtp_input1" value="" /><br/>
 							</div>
-							<!-- 单个时间插件 end-->
-							<button class="btn btn-sm btn-primary btn-search">搜索</button>
+							<!-- 树形下拉 start-->
+							<select-tree ng-show="searchCriteria==5"
+								tree-data="dataForTheTree" 
+								select-tree-options="selectTreeOptions"
+								search-criteria="searchCriteria"
+								selected-tree-node="selectedTreeNode"
+								show-direction="'top'"
+								on-select="onSelect()"
+								>
+							</select-tree>
+							<!-- 树形下拉  end-->
+							
+							<!-- 菜单下拉 start--> 
+							<div class="form-group manage" ng-show="searchCriteria==6" id="switcher" style="position:relative">
+								<a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="glyphicon glyphicon-random" ng-click=""></i>切换权限</a>
+								<ul class="dropdown-menu">
+								    <li><a>Action</a></li>
+								    <li><a>Another action</a></li>
+								    <li><a>Something else here</a></li>
+								    <li></li>
+								    <li><a>Separated link</a></li>
+								  </ul>
+							</div>
+							<!-- 菜单下拉  end-->
+							<button ng-click="console()" class="btn btn-sm btn-primary btn-search">搜索</button>
+							<button class="btn btn-sm btn-primary btn-search" ng-click="Searchshow=!Searchshow">高级搜索</button>
+							
 						</div>
 						<!-- 右侧查询条件操作区域 end-->
-
+						<!--高级搜索开始-->
+						<div class="advanced-search" ng-class="{true:'active',false:''}[Searchshow]">
+							<form method="get" class="form-horizontal">
+					            <div class="form-group">
+					            	<label class="col-sm-1 control-label">请输入搜索内容</label>
+					                <div class="col-sm-3">
+					                	<input type="text" ng-model="standardForm.bigInput" class="form-control">
+					                </div>
+					                <label class="col-sm-1 control-label">发布时间</label>
+					                <div class="col-sm-3">
+					                	<input date-range-picker class="form-control date-picker" type="text"  ng-model="datePicker.date"/>
+					                </div>
+					                 <label class="col-sm-1 control-label">发布时间</label>
+					                <div class="col-sm-3">
+					                	<input date-range-picker class="form-control date-picker" type="text"  ng-model="datePicker.date"/>
+					                </div>
+					            </div> 
+					            <div class="form-group">
+					            	<label class="col-sm-1 control-label">发布下拉</label>
+					                <div class="col-sm-3">
+					                	<select class="form-control" ng-model="standardForm.singleSelect">
+										  	<option>1</option>
+										  	<option>2</option>
+										  	<option>3</option>
+										  	<option>4</option>
+										  	<option>5</option>
+										</select>
+					                </div>
+					                <label class="col-sm-1 control-label">发布下拉</label>
+					                <div class="col-sm-3">
+					                	<select class="form-control" ng-model="standardForm.singleSelect">
+										  	<option>1</option>
+										  	<option>2</option>
+										  	<option>3</option>
+										  	<option>4</option>
+										  	<option>5</option>
+										</select>
+					                </div>
+					                <label class="col-sm-1 control-label">机构名称</label>
+					                <div class="col-sm-3">
+					                	<ui-tree-select model="model" theme="bootstrap" selecturl="{{url}}">
+										</ui-tree-select>
+										  <!--{{ model=a}}-->
+										  <!-- 此处为template，使用时请复制  -->
+										  <script type="text/ng-template" id="/ui-tree-select.html">   
+										    <ui-select
+										      ng-model="model.$selected"
+										      ui-select-focuser
+										      theme="selectize">
+										      <ui-select-match placeholder="Select a group">
+										        {{ $select.selected.title }}
+										      </ui-select-match>
+										
+										      <ui-select-choices repeat="group in groups | filter: $select.search">
+										        <div>
+										          <span ng-bind-html="group.title |  myfilter:'html'"></span>
+										          <span ng-bind-html="'('+group.size+' users)' | myfilter:'html'"></span>
+										          <a href
+										            ng-show="group.parent"
+										            class="goto-child-group"
+										            ng-click="loadChildGroupsOf(group, $select)">
+										            <i class="fa fa-angle-right"></i>
+										          </a>
+										        </div>
+										      </ui-select-choices>
+										    </ui-select>
+										  </script>
+					                </div>
+					            </div>
+					         
+					        </form>
+					        
+						<!--高级搜索结束-->
 					</div>
+					<div class="advanced-search" ng-class="{true:'active',false:''}[Searchshow]">
+							<form method="get" class="form-horizontal">
+					            <div class="form-group">
+					            	<label class="col-sm-2 control-label">请输入搜索内容</label>
+					                <div class="col-sm-4">
+					                	<input type="text" ng-model="standardForm.bigInput" class="form-control">
+					                </div>
+					                <label class="col-sm-2 control-label">发布时间</label>
+					                <div class="col-sm-4">
+					                	<input date-range-picker class="form-control date-picker" type="text"  ng-model="datePicker.date"/>
+					                </div>
+					            </div>
+					            <div class="form-group">
+					            	<label class="col-sm-2 control-label">发布下拉</label>
+					                <div class="col-sm-4">
+					                	<select class="form-control" ng-model="standardForm.singleSelect">
+										  	<option>1</option>
+										  	<option>2</option>
+										  	<option>3</option>
+										  	<option>4</option>
+										  	<option>5</option>
+										</select>
+					                </div>
+			
+					                <label class="col-sm-2 control-label">机构名称</label>
+					                <div class="col-sm-4">
+					                	<ui-tree-select model="model" theme="bootstrap" selecturl="{{url}}">
+										</ui-tree-select>
+										  <!--{{ model=a}}-->
+										  <!-- 此处为template，使用时请复制  -->
+										  <script type="text/ng-template" id="/ui-tree-select.html">   
+										    <ui-select
+										      ng-model="model.$selected"
+										      ui-select-focuser
+										      theme="selectize">
+										      <ui-select-match placeholder="Select a group">
+										        {{ $select.selected.title }}
+										      </ui-select-match>
+										
+										      <ui-select-choices repeat="group in groups | filter: $select.search">
+										        <div>
+										          <span ng-bind-html="group.title |  myfilter:'html'"></span>
+										          <span ng-bind-html="'('+group.size+' users)' | myfilter:'html'"></span>
+										          <a href
+										            ng-show="group.parent"
+										            class="goto-child-group"
+										            ng-click="loadChildGroupsOf(group, $select)">
+										            <i class="fa fa-angle-right"></i>
+										          </a>
+										        </div>
+										      </ui-select-choices>
+										    </ui-select>
+										  </script>
+					                </div>
+					            </div>
+					            <div class="form-group">
+					            	<label class="col-sm-2 control-label">发布下拉</label>
+					                <div class="col-sm-4">
+					                	<select class="form-control" ng-model="standardForm.singleSelect">
+										  	<option>1</option>
+										  	<option>2</option>
+										  	<option>3</option>
+										  	<option>4</option>
+										  	<option>5</option>
+										</select>
+					                </div>
+					                <label class="col-sm-2 control-label">机构名称</label>
+					                <div class="col-sm-4">
+					                	<ui-tree-select model="model" theme="bootstrap" selecturl="{{url}}">
+										</ui-tree-select>
+										  <!--{{ model=a}}-->
+										  <!-- 此处为template，使用时请复制  -->
+										  <script type="text/ng-template" id="/ui-tree-select.html">   
+										    <ui-select
+										      ng-model="model.$selected"
+										      ui-select-focuser
+										      theme="selectize">
+										      <ui-select-match placeholder="Select a group">
+										        {{ $select.selected.title }}
+										      </ui-select-match>
+										
+										      <ui-select-choices repeat="group in groups | filter: $select.search">
+										        <div>
+										          <span ng-bind-html="group.title |  myfilter:'html'"></span>
+										          <span ng-bind-html="'('+group.size+' users)' | myfilter:'html'"></span>
+										          <a href
+										            ng-show="group.parent"
+										            class="goto-child-group"
+										            ng-click="loadChildGroupsOf(group, $select)">
+										            <i class="fa fa-angle-right"></i>
+										          </a>
+										        </div>
+										      </ui-select-choices>
+										    </ui-select>
+										  </script>
+					                </div>
+					            </div>
+					        </form>
+							<div class="operation">
+								<button class="btn btn-sm btn-primary btn-search">搜索</button>
+								<button class="btn btn-sm btn-primary btn-search">清空</button>
+							</div>
+						</div>
 					<!-- 主列表区域 start-->
 					<div class="table-responsive" tasty-table bind-resource-callback="dataGrid" >
-						<table class="table table-gui table-chk  table-striped table-hover table-bordered">
+						<table class="table fixed table-gui table-chk  table-striped table-hover table-bordered">
 							<thead>
 								<tr class="">
 									<!--请注意，此处使用时为避免表格表现与预期不符，请在每个th上使用类名表明需要几个字不换行，目前有font_2-font_11类名
@@ -186,10 +377,11 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr ng-repeat="row in rows">
+								<tr ng-repeat="row in dataRows">
 									<td><input type="checkbox" ng-checked="master"></td>
 									<td class="text-ellipsis">
-										{{row.courseName}}
+										<p class="text-ellipsis">{{row.courseName}}
+										</p>
 									</td>
 									<td class="text-ellipsis">
 										<p class="small mb0">123</p>
@@ -252,15 +444,9 @@
 					  	<p>2.支持自定义打开三种大小的摸态框及三种打开打开方式，具体实现方式查看上面代码示例</p>
 					  	<p>3.列表右上 支持自定义查询条件，支持多种查询条件切换，具体实现方式为select选择查询方式，通过ng-model将选中的value绑定到$scope上，下面通过对$scope值的判断，通过ng-show控制相应查询框显示</p>
 					  	<p>4.列表使用时，需要在th上使用类名表明需要几个字不换行，目前有font_2-font_11类名，每一个类名对应一个min-width</p>
-					  	<p>5.全选</p>
-					  	<p>6.翻页</p>
-					  	<p>7.MODAL返回展示-->编号：{{selecteditmes.id}}</p>
-					  	<p>对象:{{selecteditmes.rows}}</p>
-					  	<p>模态对话框弹出后可以选择信息，这些被选择的信息返回到前端controller中两个值，一个是ID，一个是NAME，这些信息可以定义一个数据选择列表的返回值</p>
+					  	<p>5.当表格中文字过多需要隐藏藏是，请在table标签中加入fixed类名，并在对应需要隐藏的元素中加入text-ellipsis</p>
 					  	<h3 style="color: red;">bug和缺陷</h3>
-					  	<p>1.全选时目前有JS错误</p>
-					  	<p>2.翻页需要置底，在界面上翻页不随数据列表移动</p>
-					  	<p>3.支持日期自定义格式化</p>
+					  	<p>1.翻页需要置底，在界面上翻页不随数据列表移动</p>
 					  </p>
                 </div>
             </div>
@@ -537,13 +723,9 @@
 		   <h4 class="modal-title" id="myModalLabel">这里是摸态框的标题</h4>
 	   </div>
 	   <div class="modal-body">
-	        <p>内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
-	      	  内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</p>
+	        <button type="button" class="btn btn-info btn-lg btn-block">权限一</button>
+	        <button type="button" class="btn btn-info btn-lg btn-block">权限二</button>
 	   </div>
-	   <div class="modal-footer">
-	   	     <button type="button" class="btn btn-primary">保存</button>
-       		 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-       </div>
     </div>
   </div>
 </div>

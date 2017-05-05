@@ -1,6 +1,6 @@
 app.controller('selectTreectrl',function($scope) {
 $scope.selectedTreeNode="";
-$scope.onSelect=function(){
+$scope.onSelect=function(node){
 	console.log($scope.selectedTreeNode);
 }
 $scope.treeOptions = {

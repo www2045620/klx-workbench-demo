@@ -456,117 +456,41 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider,
 					}
 				}
 			})
-			
-			
-			
-			.state('frontendtemplate.sortable',{
-				url:'sortable',
-				templateUrl : "workbench/sortable/list.html",
+			.state('table', {
+	            url: "/table",
+	            templateUrl: "views/common/content.html",
+	            data: { pageTitle: '' },
+	            resolve: {
+	                loadPlugin: function ($ocLazyLoad) {
+	                    return $ocLazyLoad.load([
+	                        {
+	                            files: []
+	                        }
+	                    ]);
+	                }
+	            }
+	        })
+			.state('table.treegrid',{
+				url:'/treegrid',
+				templateUrl : "workbench/treegrid/list.html",
 				data : {pageTitle:''},
-				controller:'sortablectrl',
+				controller:'treegridctrl',
 				resolve : {
 					loadPlugin : function($ocLazyLoad) {
-								return $ocLazyLoad
-										.load([{
-											name : 'Module.sortable',
-											files : [
-													'./workbench/sortable/sortableservice.js',
-													'./workbench/sortable/sortablectrl.js',
-													'../asserts/js/plugin/sortable/angular-sortable-view.min.js'],
-											serie : true
-										}]);
-							}
+						return $ocLazyLoad
+							.load([{
+								name : 'Module.treegrid',
+								files : [
+										'./workbench/treegrid/treegridservice.js',
+										'./workbench/treegrid/treegridctrl.js',
+										"../asserts/js/plugin/treegrid/tree-grid-directive.js",
+										"../asserts/css/plugins/treegrid/treeGrid.css",
+										],
+								serie : true
+							}]);
+					}
 				}
 			})
-			.state('frontendtemplate.treemenu',{
-				url:'treemenu',
-				templateUrl : "workbench/treemenu/list.html",
-				data : {pageTitle:''},
-				controller:'',
-				resolve : {
-					loadPlugin : function($ocLazyLoad) {
-								return $ocLazyLoad
-										.load([ {
-											name : 'Module.treemenu',
-											files : [
-													'../asserts/css/plugins/angulartree/tree-control-attribute.css',
-													'../asserts/css/plugins/angulartree/tree-control.css',
-													'../asserts/css/plugins/angulartree/index.css',
-													'../asserts/js/plugin/angulartree/angular-tree-control.js',
-													'../asserts/js/plugin/angulartree/index.js'],
-											serie : true
-										}
-
-										]);
-							}
-				}
-			})
-			.state('frontendtemplate.uitab',{
-				url:'uitab',
-				templateUrl : "workbench/uitab/list.html",
-				data : {pageTitle:''},
-				controller:'uitabctrl',
-				resolve : {
-					loadPlugin : function($ocLazyLoad) {
-								return $ocLazyLoad
-										.load([ {
-											name : 'Module.uitab',
-											files : [
-													'./workbench/uitab/uitabservice.js',
-													'./workbench/uitab/uitabctrl.js',
-													'../asserts/js/plugin/ngtab/tabs.js'],
-											serie : true
-										}
-
-										]);
-							}
-				}
-			})
-			.state('frontendtemplate.uitabtasty',{
-				url:'uitabtasty',
-				templateUrl : "workbench/uitabtasty/list.html",
-				data : {pageTitle:''},
-				controller:'uitabtastyctrl',
-				resolve : {
-					loadPlugin : function($ocLazyLoad) {
-								return $ocLazyLoad
-										.load([ {
-											name : 'Module.uitabtasty',
-											files : [
-													'./workbench/uitabtasty/uitabtastyService.js',
-													'./workbench/uitabtasty/uitabtastyctrl.js',
-													'../asserts/js/plugin/gtilesTasty/gtiles-tasty.js'],
-											serie : true
-										}
-
-										]);
-							}
-				}
-			})
-			.state('frontendtemplate.treemenutable',{
-				url:'treemenutable',
-				templateUrl : "workbench/treemenutable/list.html",
-				data : {pageTitle:''},
-				controller:'treemenutablectrl',
-				resolve : {
-					loadPlugin : function($ocLazyLoad) {
-								return $ocLazyLoad
-										.load([ {
-											name : 'Module.treemenutable',
-											files : [
-													'./workbench/treemenutable/treemenutableservice.js',
-													'./workbench/treemenutable/treemenutablectrl.js',
-													'../asserts/css/plugins/angulartreetable/tree-control-attribute.css',
-													'../asserts/css/plugins/angulartreetable/tree-control.css',
-													'../asserts/js/plugin/angulartreetable/angular-tree-control.js'],
-											serie : true
-										}
-
-										]);
-							}
-				}
-			});
-
 }
 angular.module('klxComponent').config(config).run(function($rootScope, $state) {
 	$rootScope.$state = $state;

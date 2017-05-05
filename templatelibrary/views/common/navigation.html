@@ -45,56 +45,25 @@
 				<ul class="nav nav-second-level collapse in"
 					ng-class="{in: $state.includes('frontendtemplate')}">
 					<li ui-sref-active="active"><a
-						ui-sref="frontendtemplate.uiselect"
-						href="/frontendtemplateuiselect/">下拉选择树</a></li>
-				</ul>
-				<ul class="nav nav-second-level collapse in"
-					ng-class="{in: $state.includes('frontendtemplate')}">
-					<li ui-sref-active="active"><a
-						ui-sref="frontendtemplate.treegrid"
-						href="/frontendtemplatetreegrid/">列表树</a></li>
-				</ul>
-				<ul class="nav nav-second-level collapse in"
-					ng-class="{in: $state.includes('frontendtemplate')}">
-					<li ui-sref-active="active"><a
-						ui-sref="frontendtemplate.textedit"
-						href="/frontendtemplatetextedit/">富文本</a></li>
-				</ul>
-				<ul class="nav nav-second-level collapse in"
-					ng-class="{in: $state.includes('frontendtemplate')}">
-					<li ui-sref-active="active"><a
-						ui-sref="frontendtemplate.classify"
-						href="/frontendtemplateclassify/">三级分类</a></li>
-				</ul>
-				<ul class="nav nav-second-level collapse in"
-					ng-class="{in: $state.includes('frontendtemplate')}">
-					<li ui-sref-active="active"><a
-						ui-sref="frontendtemplate.sortable"
-						href="/frontendtemplatesortable/">拖拽排序</a></li>
-				</ul>
-				<ul class="nav nav-second-level collapse in"
-					ng-class="{in: $state.includes('frontendtemplate')}">
-					<li ui-sref-active="active"><a
-						ui-sref="frontendtemplate.treemenu"
-						href="/frontendtemplatetreemenu/">树形菜单</a></li>
-				</ul>
-				<ul class="nav nav-second-level collapse in"
-					ng-class="{in: $state.includes('frontendtemplate')}">
-					<li ui-sref-active="active"><a
-						ui-sref="frontendtemplate.uitab" href="/frontendtemplateuitab/">tab</a></li>
-				</ul>
-				<ul class="nav nav-second-level collapse in"
-					ng-class="{in: $state.includes('frontendtemplate')}">
-					<li ui-sref-active="active"><a
-						ui-sref="frontendtemplate.uitabtasty"
-						href="/frontendtemplateuitabtasty/">UI-TAB嵌套多列表</a></li>
-				</ul>
-				<ul class="nav nav-second-level collapse in"
-					ng-class="{in: $state.includes('frontendtemplate')}">
-					<li ui-sref-active="active"><a
 						ui-sref="frontendtemplate.treemenutable"
 						href="/frontendtemplatetreemenutable/">树+列表</a></li>
-				</ul></li>
+				</ul>
+				<ul class="nav nav-second-level in collapse" ng-class="{in: $state.includes('frontendtemplate')}">
+					<li ui-sref-active="active" class="active">
+						<a ui-sref="frontendtemplate.check" href="/frontendtemplatecheck/">考勤</a>
+					</li>
+				</ul>
+				<ul class="nav nav-second-level in collapse" ng-class="{in: $state.includes('frontendtemplate')}">
+					<li ui-sref-active="active" class="active">
+						<a ui-sref="frontendtemplate.model" href="/frontendtemplatemodel/">勾选摸态框</a>
+					</li>
+				</ul>
+				<ul class="nav nav-second-level in collapse" ng-class="{in: $state.includes('frontendtemplate')}">
+					<li ui-sref-active="active" class="active">
+						<a ui-sref="frontendtemplate.basiciinformation" href="/frontendtemplatebasiciinformation/">基础信息维护</a>
+					</li>
+				</ul>
+			</li>
 		</ul>
 
 	</div>
