@@ -13,7 +13,7 @@ app.directive("selectTree",function($timeout){
 		},
 		replace:true,
 		link:function(scope,element,attr){
-			scope.selectedTreeNode={};
+			scope.selectedTreeNode?"":scope.selectedTreeNode={};
 			scope.showLable?"":scope.showLable='title';
 			scope.lable=scope.selectedTreeNode[scope.showLable];
 			scope.showSelected=function(node){

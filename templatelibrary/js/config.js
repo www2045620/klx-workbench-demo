@@ -218,6 +218,27 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider,
 				   }
 				}
 			})
+			.state('frontendtemplate.signin', {
+				url: "signin/:data",
+				templateUrl: "./workbench/signin/list.html",
+				data: { pageTitle:''},
+				controller: "signinctrl",
+				resolve: {
+				   loadPlugin: function ($ocLazyLoad) {
+				       return $ocLazyLoad.load([
+				          	{ 
+							   name:'Module.signin', 
+							   files: [
+							   		   './workbench/signin/signinservice.js',
+							   		   './workbench/signin/signinctrl.js'
+							   		   ],
+							   serie: true 
+							}
+				
+				       ]);
+				   }
+				}
+			})
 			
 
 }
