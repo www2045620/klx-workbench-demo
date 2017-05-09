@@ -65,7 +65,6 @@ function config($stateProvider, $urlRouterProvider, $ocLazyLoadProvider,$httpPro
                 }
             }
         })
-        &????&
         		
         // workbench security guard
         $httpProvider.interceptors.push(function ($timeout,$q, $injector,$location) {
